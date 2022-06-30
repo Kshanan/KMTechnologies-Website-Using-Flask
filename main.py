@@ -131,7 +131,7 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/user_home',methods=['POST',['GET'])
+@app.route('/user_home',methods=['POST','GET'])
 def user_home():
     if not session.get('user'):
         return render_template('login.html')
