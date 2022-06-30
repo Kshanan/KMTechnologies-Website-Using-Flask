@@ -1,0 +1,29 @@
+{% extends "admin_layout.html" %}
+{% block content %}
+<body><center>
+        <link rel="stylesheet" href="/static/project.css">
+        <br><h1> LIST OF USERS</h1><br>
+       
+        <table class="content-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for register in dis %}
+              <tr>
+                <td>{{ register[0] }}</td>
+                <td>{{ register[1] }}</td>
+                <td>{{ register[2] }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          
+          </table>
+        </center>
+    
+    
+{% endblock content %}

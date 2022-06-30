@@ -1,0 +1,184 @@
+{% extends "admin_layout.html" %}
+{% block content %}
+<body>
+    <link rel="stylesheet" href="/static/project.css">
+    <style>
+        footer{
+            display:none;
+        }
+        .mass {
+            position: absolute;
+            top: 60%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            border-radius: 10px;
+        }
+        form{
+            width:400px;
+        }
+        label {
+            color: #0f1a81;
+            font-weight: bold;
+            display: block;
+        }
+        label:after { content: ": " }
+        .addn input {
+            padding: 3px;
+            box-shadow: 3px 3px 5px grey;
+            font-size: 14px;
+            font-weight: 600;
+            width: 300px;
+            margin: 15px 0;
+        }
+        textarea {
+            padding: 3px;
+            box-shadow: 3px 3px 5px grey;
+            font-size: 14px;
+            font-weight: 600;
+            width: 300px;
+            margin:15px 0;
+
+        }
+        .mass h1{
+            text-align: left;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0 40px;
+        }
+        .subs input {
+            padding: 10px;
+            border: 1px solid rgb(26, 26, 29);
+            background-color:#3c4deb;
+            border-radius: 5px;
+            font-family: 'lucida sans';
+            font-weight: bold;
+            font-size: medium;
+            color:antiquewhite ;
+            margin: 0 100px;
+        }
+        .content-table{
+            position: absolute;
+            top:30%;
+            left:35%;
+        }
+        h1{
+            text-align: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0 100px;
+        }
+        .mass2 {
+            position: absolute;
+            top: 120%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            border-radius: 10px;
+        }
+        .mass2 h1{
+            text-align: left;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0 40px;
+        }
+        .addn1 input {
+            padding: 3px;
+            box-shadow: 3px 3px 5px grey;
+            font-size: 14px;
+            font-weight: 600;
+            width: 300px;
+            margin: 15px 0;
+        }
+        .subs2 input {
+            padding: 10px;
+            border: 1px solid rgb(26, 26, 29);
+            background-color:#3c4deb;
+            border-radius: 5px;
+            font-family: 'lucida sans';
+            font-weight: bold;
+            font-size: medium;
+            color:antiquewhite ;
+            margin: 0 100px;
+        }
+        .message_flash {
+            top:20%;
+        }
+
+        
+    </style>
+    <center>{% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+             {% for message in messages %}
+              <div class="message_flash">{{ message }}</div>
+             {% endfor %}
+         </ul>
+       {% endif %}
+      {% endwith %}</center>
+    
+    <br><br>    
+    <div class="mass">
+        <h1>Add New Project</h1><br><br>
+        <form method="post" name="insert">
+        <div class="addn">
+            <label>Title</label>
+            <input type="text" name="title" >
+        </div>
+        <div class="addd">
+            <label>Description</label>
+            <textarea type="text" name="description" cols="30" rows="5" spellcheck="true" autocorrect="on" ></textarea>
+        </div>
+        <div class="addl">
+            <label>Link</label>
+            <textarea type="text" name="link" cols="30" rows="5" ></textarea>
+        </div>
+        <div class="subs">
+            <input type="submit" name="submit" value="Add Project">
+        </div>
+        
+    </div>
+    <div class="mass2">
+        <h1>Delete Project</h1><br>
+        
+        <p>NOTE : Enter project ID to delete that project</p><br>
+        
+        <div class="addn1">
+            <label>PROJECT ID</label>
+            <input type="number" name="pid" id="id" >
+        </div>
+        <div class="subs2">
+            <input type="submit" name="submit" value="Delete">
+        </div>
+        
+    </form>
+    </div>
+
+
+    <br><br>
+    
+    <h1> LIST OF PROJECTS</h1>
+    <table class="content-table">
+        
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>link</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for register in dis %}
+          <tr>
+            <td>{{ register[0] }}</td>
+            <td>{{ register[1] }}</td>
+            <td>{{ register[2] }}</td>
+            <td><a href="{{ register[3] }}">View</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      
+      </table>
+    </center>
+   
+{% endblock content %}

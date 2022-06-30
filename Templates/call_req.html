@@ -1,0 +1,32 @@
+{% extends "admin_layout.html" %} 
+{% block content %}
+<body><center>
+    <link rel="stylesheet" href="/static/project.css">
+    <br><h1> List of call back requests</h1><br>
+    
+    <table class="content-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email ID</th>
+            <th>Contact No</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        {% for contact_info in dis %}
+          <tr>
+            <td>{{ contact_info[0] }}</td>
+            <td>{{ contact_info[1] }}</td>
+            <td>{{ contact_info[2] }}</td>
+            <td>{{ contact_info[3] }}</td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+      
+      </table>
+      
+    </center>
+{% endblock content %}

@@ -1,0 +1,73 @@
+{% extends "user_layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+<style>
+footer{
+    position: inherit;
+    height: 100px;
+}
+a {
+    color: white;
+    text-decoration: none;
+    font-family: Snell Roundhand, cursive;
+}
+
+</style>
+
+<link rel="stylesheet" href="/static/profile.css">
+<body>
+  <center>{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+         {% for message in messages %}
+          <div class="message_flash">{{ message }}</div>
+         {% endfor %}
+     </ul>
+   {% endif %}
+  {% endwith %}</center>
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="/static/profile.png"><span class="font-weight-bold">{{ user }}</span><span class="text-black-50">{{ email }}</span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <form method="post">
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Username</label><input type="text" class="form-control" name="nusername" placeholder="Enter New Username" value=""></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" name="nemail" placeholder="Enter New Email Id" value=""></div>
+                   
+                </div>
+                <div class="row mt-3">
+                  <div class="col-md-12"><label class="labels">Password</label><input type="password" name="pass" class="form-control" placeholder="Confirm Password to update" value=""></div>
+              </div>
+              <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+              <h4 class="text-right">Change Password</h4>  
+              <div class="row mt-2">
+               <div class="col-md-12"><label class="labels">Old Password</label><input type="password" name="oldpass" class="form-control" placeholder="Enter Old Password" value=""></div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-12"><label class="labels">New Password</label><input type="text" name="newpass" class="form-control" placeholder="Enter New Password" value=""></div>
+              </div>
+              <div class="row mt-3">
+               <div class="col-md-12"><label class="labels">Confirm Password</label><input type="password" name="cnpass" class="form-control" placeholder="Confirm New Password" value=""></div>
+              </div>
+              <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Change password</button></div>
+            </div>
+        </div>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+
+{% endblock content %}
