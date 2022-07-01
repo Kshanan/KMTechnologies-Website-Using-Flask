@@ -11,8 +11,6 @@ cur = conn.cursor()
 # 4.admin_reg
 
 #------------------------------------------xx: Importing Modules Required :XX---------------------------------------------#
-
-import os
 from flask import Flask, render_template, request, flash, redirect, url_for, session ,Response 
 app = Flask(__name__)
 
@@ -339,5 +337,5 @@ def call_req():
 # ----------------------------------------------xx: RunServer :XX------------------------------------------------------#
 
 if __name__ == '__main__':
-    app.secret_key = os.urandom(12)
+    app.secret_key = 'Super Secret Key'
     app.run(debug=True)
