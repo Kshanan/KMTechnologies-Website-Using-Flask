@@ -77,7 +77,7 @@ def current_user():
         user = user_cur[0][1]
     return user
 
-@app.route('/login',methods=['GET','POST'])
+@app.route('/login',methods=['POST','GET'])
 def login():
     user = current_user()
     if request.method == 'POST':
@@ -104,7 +104,7 @@ def login():
             return redirect(url_for('user_home'))           
     return render_template('login.html')
 
-@app.route('/register', methods=['GET','POST'])
+@app.route('/register', methods=['POST','GET'])
 def register():
     user = current_user()
     if request.method == 'POST':
