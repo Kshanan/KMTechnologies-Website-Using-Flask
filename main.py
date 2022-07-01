@@ -337,5 +337,5 @@ def call_req():
 # ----------------------------------------------xx: RunServer :XX------------------------------------------------------#
 
 if __name__ == '__main__':
-    app.secret_key = 'Super Secret Key'
+    app.secret_key = 'kshananm@gmail.com'
     app.run(debug=True)
