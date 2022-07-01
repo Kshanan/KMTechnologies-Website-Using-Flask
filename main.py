@@ -13,7 +13,7 @@ cur = conn.cursor()
 #------------------------------------------xx: Importing Modules Required :XX---------------------------------------------#
 from flask import Flask, render_template, request, flash, redirect, url_for, session ,Response 
 app = Flask(__name__)
-
+app.secret_key = 'kshananm@gmail.com'
 #-------------------------------------------xx: MAIN PAGE :XX-------------------------------------------------------------#
 
 
@@ -337,5 +337,5 @@ def call_req():
 # ----------------------------------------------xx: RunServer :XX------------------------------------------------------#
 
 if __name__ == '__main__':
-    app.secret_key = 'kshananm@gmail.com'
+    
     app.run(debug=True)
