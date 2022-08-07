@@ -1,6 +1,11 @@
 {% extends "layout.html" %} 
 {% block content %}
 <style>
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 footer {
     display: none;
 }
@@ -15,8 +20,8 @@ body {
 }
 
 .center {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
@@ -114,9 +119,9 @@ input[type="submit"]:hover{
 }
 
 .center2{
-    position: absolute;
-    top:83%;
-    left:24%;
+    position:relative;
+    top: 50px;
+    left:15px;
 }
 
 </style>
@@ -152,7 +157,6 @@ input[type="submit"]:hover{
     </form>
 </div>
 <div class="center2">
-<center>
 <p><b>Email :</b><mark> kmtech@edu.co.in</mark>  &nbsp;<b> Phone No : </b><mark>08472-240648</mark> &nbsp;<b>Mobile No :</b><mark>9380190768</mark></p>
 <p>
     <b>Address :</b> Gali No 420 hum nahi banate idhar project road ,malumnahi dist ,Kyatobhi 584454
@@ -161,6 +165,5 @@ input[type="submit"]:hover{
 <em style="font-size:20px;"><b>
     Get in touch with us for All the Engineering Computer Science, diploma projects guidance. 
 </b></em>
-</center>
 </div>
 {% endblock content %}
