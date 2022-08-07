@@ -51,3 +51,19 @@ footer{
     color: #062079;
 }
   
+@media all and (min-width: 200px){
+  .content-table {
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.9em;
+    max-width: 90%;
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .content-table th,
+  .content-table td {
+    padding: 5px 5px;
+  }
+}
